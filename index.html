@@ -151,19 +151,21 @@
         </div>
         
         <script>
-            function sendMessage() {
-                let userInput = document.getElementById("user-input").value;
-                fetch("http://127.0.0.1:5000/chat", {  // <- Preveri, da imaš PRAVILEN URL!
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: userInput })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("chat-response").innerText = data.response;
-                })
-                .catch(error => console.error("Napaka:", error));
-            }
+           document.getElementById("sendButton").addEventListener("click", function() {
+    let userInput = document.getElementById("user-input").value;
+
+    fetch("https://hobby-chatbot.onrender.com", {  // Change this to your API URL
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userInput })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("chat-response").innerHTML += `<p>Bot: ${data.response}</p>`;
+    })
+    .catch(error => console.error("Error:", error));
+});
+
         </script>
         
         
