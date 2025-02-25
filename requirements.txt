@@ -49,7 +49,7 @@ pyasn1_modules==0.4.1
 pydantic==2.10.6
 pydantic_core==2.27.2
 pydot==3.0.4
-PyMuPDF==1.25.3
+PyMuPDF==1.21.0
 pyparsing==3.2.1
 python-dateutil==2.9.0.post0
 pytz==2025.1
