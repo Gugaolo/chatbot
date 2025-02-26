@@ -11,7 +11,6 @@ configobj==5.0.9
 configparser==7.1.0
 etelemetry==0.3.1
 filelock==3.17.0
-fitz==0.0.1.dev2
 Flask==3.1.0
 Flask-Cors==5.0.0
 google-ai-generativelanguage==0.6.15
@@ -49,7 +48,7 @@ pyasn1_modules==0.4.1
 pydantic==2.10.6
 pydantic_core==2.27.2
 pydot==3.0.4
-PyMuPDF==1.21.0
+PyMuPDF==1.25.3
 pyparsing==3.2.1
 python-dateutil==2.9.0.post0
 pytz==2025.1
