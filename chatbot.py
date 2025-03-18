@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS  
 import google.generativeai as genai
-import PyMuPDF  # PyMuPDF is still imported as fitz
+import pymupdf  # PyMuPDF is still imported as fitz
 
 
 
@@ -15,7 +15,7 @@ genai.configure(api_key="AIzaSyDWbxlYuOTGyBmiAkt-FYMswcnAKiMZo3I")
 def extract_text_from_pdf(pdf_path):
     text = ""
     try:
-        with fitz.open(pdf_path) as doc:
+        with pymupdf.open(pdf_path) as doc:
             for page in doc:
                 text += page.get_text() + "\n"
     except Exception as e:
