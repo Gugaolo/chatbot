@@ -6,7 +6,7 @@ import pymupdf  # PyMuPDF is still imported as fitz
 
 
 app = Flask(__name__)
-CORS(app)  
+CORS(app, origins=["https://hobiji-chatbot.lovestoblog.com"])  
 
 
 genai.configure(api_key="AIzaSyDWbxlYuOTGyBmiAkt-FYMswcnAKiMZo3I")
