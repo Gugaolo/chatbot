@@ -8,10 +8,10 @@ import pymupdf  # PyMuPDF is still imported as fitz
 app = Flask(__name__)
 CORS(app)  
 
-# Configure Gemini API key
+
 genai.configure(api_key="AIzaSyDWbxlYuOTGyBmiAkt-FYMswcnAKiMZo3I")
 
-# Load PDF and extract text
+
 def extract_text_from_pdf(pdf_path):
     text = ""
     try:
@@ -22,9 +22,9 @@ def extract_text_from_pdf(pdf_path):
         print("Error reading PDF:", e)
     return text
 
-pdf_text = extract_text_from_pdf("instructions.pdf")  # Change to your actual PDF file
+pdf_text = extract_text_from_pdf("instructions.pdf")  
 
-# Model for generating responses
+
 model = genai.GenerativeModel("gemini-pro")
 
 @app.route("/chat", methods=["POST"])
@@ -35,7 +35,7 @@ def chat():
     if not user_input:
         return jsonify({"response": "Prosim, napišite vprašanje!"})
 
-    # Combine PDF instructions with user input
+  
     prompt = f"Uporabite naslednje smernice:\n\n{pdf_text}\n\nUporabnik: {user_input}\nOdgovor:"
 
     response = model.generate_content(prompt)
@@ -43,4 +43,7 @@ def chat():
 
 if __name__ == "__main__":
     from waitress import serve
-    serve(app, host="0.0.0.0", port=5000)
+    import os
+    port = int(os.environ.get("PORT", 5000))  
+    serve(app, host="0.0.0.0", port=port)
+
