@@ -25,7 +25,7 @@ def extract_text_from_pdf(pdf_path):
 pdf_text = extract_text_from_pdf("instructions.pdf")  
 
 
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("gemini-pro-beta")
 
 @app.route("/chat", methods=["POST"])
 def chat():
