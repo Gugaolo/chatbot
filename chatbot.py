@@ -37,24 +37,32 @@ pdf_text = extract_text_from_pdf("instructions.pdf")
 @app.route("/chat", methods=["POST"])
 def chat():
     if model is None:
-        return jsonify({"response": "Napaka: Model ni bil uspešno naložen."})
-
-    data = request.get_json()
-    user_input = data.get("message", "")
-
-    if not user_input:
-        return jsonify({"response": "Prosim, napišite vprašanje!"})
-
-    # 🔹 Oblikovanje vprašanja za model
-    prompt = f"Uporabite naslednje smernice:\n\n{pdf_text}\n\nUporabnik: {user_input}\nOdgovor:"
+        return jsonify({"response": "Napaka: Model ni bil uspešno naložen."}), 500
 
     try:
-        response = model.generate_content(prompt)
-        return jsonify({"response": response.text})
-    except Exception as e:
-        print("Napaka pri generiranju odgovora:", e)
-        return jsonify({"response": "Prišlo je do napake pri generiranju odgovora."})
+        data = request.get_json()
+        print("📩 Prejeto sporočilo:", data)  # Debug izpis
 
+        if not data or "message" not in data:
+            return jsonify({"response": "Napaka: Ni bilo poslanega sporočila."}), 400
+
+        user_input = data["message"]
+        if not user_input.strip():
+            return jsonify({"response": "Prosim, napišite vprašanje!"}), 400
+
+        # 🔹 Oblikovanje vprašanja za model
+        prompt = f"Uporabite naslednje smernice:\n\n{pdf_text}\n\nUporabnik: {user_input}\nOdgovor:"
+        print("📝 Poslan prompt:", prompt)  # Debug izpis
+
+        response = model.generate_content(prompt)
+        print("✅ Odgovor modela:", response.text)  # Debug izpis
+
+        return jsonify({"response": response.text})
+
+    except Exception as e:
+        print("❌ Napaka pri generiranju odgovora:", e)
+        return jsonify({"response": "Prišlo je do napake pri generiranju odgovora."}), 500
+    
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  
     app.run(host="0.0.0.0", port=port, debug=True)
