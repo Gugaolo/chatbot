@@ -1,11 +1,21 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS  
 import google.generativeai as genai
-import pymupdf  # PyMuPDF (importan kot fitz)
+import pymupdf
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/chat": {"origins": "https://hobiji-chatbot.lovestoblog.com"}})
+# Allow both your domains
+CORS(app, resources={
+    r"/chat": {
+        "origins": [
+            "https://hobiji-chatbot.lovestoblog.com",
+            "http://hobiji-chatbot.lovestoblog.com"  # Add HTTP if needed
+        ]
+    }
+})
+
+# ... rest of your Python code remains the same ...
 
 # 🔹 Nastavi API ključ pravilno
 API_KEY = "AIzaSyDWbxlYuOTGyBmiAkt-FYMswcnAKiMZo3I"  # Zamenjaj z dejanskim ključem

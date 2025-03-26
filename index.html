@@ -151,21 +151,38 @@
         </div>
         
         <script>
-           document.getElementById("sendButton").addEventListener("click", function() {
-    let userInput = document.getElementById("user-input").value;
-
-    fetch("https://hobby-chatbot.onrender.com", {  // Change this to your API URL
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userInput })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("chat-response").innerHTML += `<p>Bot: ${data.response}</p>`;
-    })
-    .catch(error => console.error("Error:", error));
-});
-
+            function sendMessage() {
+                let userInput = document.getElementById("user-input").value;
+                if (!userInput.trim()) {
+                    alert("Prosim, vnesite sporočilo!");
+                    return;
+                }
+        
+                // Add user message to chat
+                document.getElementById("chat-response").innerHTML += `<p><strong>Vi:</strong> ${userInput}</p>`;
+                
+                // Clear input
+                document.getElementById("user-input").value = "";
+        
+                fetch("https://hobby-chatbot.onrender.com/chat", {  // Note the /chat endpoint
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userInput })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById("chat-response").innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("chat-response").innerHTML += `<p style="color:red">Napaka pri pošiljanju sporočila.</p>`;
+                });
+            }
         </script>
         
         
