@@ -164,7 +164,7 @@
                 // Clear input
                 document.getElementById("user-input").value = "";
         
-                fetch("https://hobby-chatbot.onrender.com/chat", {  // Note the /chat endpoint
+                fetch("https://hobby-chatbot.onrender.com/main", {  // Note the /chat endpoint
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ message: userInput })
