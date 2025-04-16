@@ -1,191 +1,24 @@
-<!DOCTYPE html>
-<html lang="sl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Spletna Stran</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-            background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.stellenanzeigen.de%2Fcareeasy%2Fwp-content%2Fuploads%2F2020%2F01%2FHobbys-im-Lebenslauf-1404x935.jpg&f=1&nofb=1&ipt=16d22b954fabf28947983aee25a1c503872b536c81abe526e993b452be85c612&ipo=images");
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
-        header {
-            background: #c25b5b;
-            color: white;
-            padding: 1em 0;
-            font-size: 24px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: rgb(255, 243, 137);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .chatbot-container {
-            margin-top: 20px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        button{
-            padding: 10px 20px;
-            background: #c25b5b;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }.odebeljen {
-            font-weight: bold;
-        }ol {
-            text-align: left;
-        }
-        #kajso{
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        #vrste{
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        ul {
-            text-align: left;
-        }
-        #izbira{
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        #zakljucek{
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        
-    </style>
-</head>
-<body>
-    <header><b>Hobi ChatBot</b></header>
-    <div class="container">
-        <h2>Dobrodošli!</h2>
-        <p>Na tej strani so predstavljene informacije o hobijih.
-        Lahko se pogovorite z našim chatbotom, če imate kakršna koli vprašanja!</p>
-        <div id="kajso">
-        <p><span class="odebeljen">Kaj so in zakaj so pomembni?<br></span>
-
-            Hobiji so aktivnosti, ki jih ljudje izvajajo v prostem času za zabavo, sprostitev in osebni razvoj. So odličen način za zmanjšanje stresa, izboljšanje koncentracije in učenje novih veščin. Prav tako pomagajo pri ohranjanju mentalnega in fizičnega zdravja ter omogočajo druženje z ljudmi s podobnimi interesi.
-        </p>
-    </div>
-
-        <div id="vrste">       
-            <p><span class="odebeljen">Vrste hobijev<br></span>
-            
-            Obstaja nešteto različnih hobijev, ki jih lahko razdelimo v več kategorij:
-            <ol>
-                <li>Ustvarjalni hobiji - vključujejo risanje, slikanje, kiparjenje, fotografijo, izdelovanje nakita, šivanje, pletenje in druge obrtniške dejavnosti.</li>
-                <li>Glasbeni hobiji - igranje instrumentov, petje, skladanje glasbe ali DJ-anje.</li>
-                <li>Športni hobiji - tek, plavanje, kolesarjenje, plezanje, joga, borilne veščine in skupinski športi, kot so nogomet, košarka in odbojka.</li>
-                <li>Zbirateljski hobiji - zbiranje znamk, kovancev, starin, stripov, vinilnih plošč in drugih zanimivih predmetov.</li>
-                <li>Tehnični in znanstveni hobiji - programiranje, robotika, astronomija, kemijski eksperimenti in modelarstvo.</li>
-                <li>Kulturni hobiji - branje, pisanje, učenje tujih jezikov, gledanje filmov in obiskovanje gledališča ali muzejev.</li>
-                <li>Kulinarični hobiji - kuhanje, peka, vinarstvo in preizkušanje novih receptov.</li>
-                <li>Naravoslovni hobiji - vrtnarjenje, pohodništvo, kampiranje, opazovanje ptic in potapljanje.</li>
-            </ol>
-        </div>
-        <div id="izbira">    
-            <span class="odebeljen">Kako izbrati pravi hobi?<br></span>
-            
-            Izbira hobija je osebna odločitev, ki temelji na interesih, prostem času in željah posameznika. Pri izbiri hobija si lahko pomagaš z naslednjimi vprašanji:
-            <ul>
-                <li>Kaj te najbolj veseli in sprošča?</li>
-                <li>Ali želiš nekaj ustvarjalnega, fizičnega ali intelektualnega?</li>
-                <li>Koliko časa in denarja si pripravljen vložiti?</li>
-                <li>Ali želiš hobi izvajati sam ali v skupini?</li>
-                <li>Ali si želiš pridobiti nove veščine ali se sprostiti?</li>
-            </ul>
-        </div>
-        
-        <div id="zakljucek">
-            <span class="odebeljen">Zaključek<br></span>
-            
-            Ne glede na to, kateri hobi izbereš, je najpomembnejše, da v njem uživaš in se skozi njega osebno razvijaš. Hobiji so odličen način za izboljšanje kakovosti življenja, zato si vsekakor vzemi čas in poišči tistega, ki ti najbolj ustreza!
-            
-            </p>
-        </div>
-        
-        <div class="chatbot-container">
-            <h3>Vprašajte chatbota</h3>
-            <textarea id="user-input" placeholder="Vprašajte o hobijih..."></textarea>
-            <button onclick="sendMessage()">Pošlji</button>
-            <p id="chat-response"></p>
-        </div>
-        
-        <script>
-            function sendMessage() {
-                let userInput = document.getElementById("user-input").value;
-                if (!userInput.trim()) {
-                    alert("Prosim, vnesite sporočilo!");
-                    return;
-                }
-        
-                // Add user message to chat
-                document.getElementById("chat-response").innerHTML += `<p><strong>Vi:</strong> ${userInput}</p>`;
-                
-                // Clear input
-                document.getElementById("user-input").value = "";
-        
-                fetch("https://hobby-chatbot.onrender.com/main", {  // Note the /chat endpoint
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: userInput })
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    document.getElementById("chat-response").innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    document.getElementById("chat-response").innerHTML += `<p style="color:red">Napaka pri pošiljanju sporočila.</p>`;
-                });
-            }
-        </script>
-        
-        
-    </div>
-</body>
-</html>
+<div class="chatbot-container">
+    <textarea id="userInput" placeholder="Vpišite svoje vprašanje..."></textarea>
+    <button id="sendButton">Pošlji</button>
+    <div id="response" style="margin-top: 20px; background: #e9ecef; padding: 10px; border-radius: 8px;"></div>
+</div>
+<script>
+    document.getElementById('sendButton').addEventListener('click', function() {
+        const userInput = document.getElementById('userInput').value;
+        fetch('YOUR_PYTHON_API_ENDPOINT', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question: userInput })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('response').innerText = data.answer;
+        })
+        .catch(error => {
+            document.getElementById('response').innerText = 'Napaka pri pridobivanju odgovora.';
+        });
+    });
+</script>
