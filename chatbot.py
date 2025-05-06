@@ -1,3 +1,4 @@
+import traceback
 from dotenv import load_dotenv
 load_dotenv()
 from flask import Flask, request, jsonify
@@ -76,7 +77,6 @@ def chat():
 
     except Exception as e:
         print("Error generating response:", str(e))
-        import traceback
         print(traceback.format_exc())
         return jsonify({"response": "An error occurred while generating the response."}), 500
 
