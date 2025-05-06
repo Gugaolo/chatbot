@@ -6,16 +6,16 @@
 <script>
     document.getElementById('sendButton').addEventListener('click', function() {
         const userInput = document.getElementById('userInput').value;
-        fetch('YOUR_PYTHON_API_ENDPOINT', {
+        fetch('https://hobby-chatbot.onrender.com/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ question: userInput })
+            body: JSON.stringify({ message: userInput })
         })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('response').innerText = data.answer;
+            document.getElementById('response').innerText = data.response;
         })
         .catch(error => {
             document.getElementById('response').innerText = 'Napaka pri pridobivanju odgovora.';
