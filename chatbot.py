@@ -60,6 +60,10 @@ def chat():
         payload = {"inputs": prompt}
         response = requests.post(HF_API_URL, headers=headers, json=payload)
 
+        print(f"API status: {response.status_code}")
+        print(f"API response: {response.text}")
+
+
         if response.status_code != 200:
             print(f"API error: {response.status_code}, {response.text}")
             return jsonify({"response": f"Error: API returned status code {response.status_code}"}), 500
