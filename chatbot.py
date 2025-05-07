@@ -20,6 +20,7 @@ CORS(app, resources={
 
 # Hugging Face API ključ
 HF_API_KEY = os.environ.get("HF_API_KEY")
+print(f"HF_API_KEY loaded: {HF_API_KEY}")
 
 # Izbrani model na Hugging Face
 HF_API_URL = "https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct"  # ali drug model, če želiš
@@ -78,9 +79,9 @@ def chat():
         return jsonify({"response": generated_text})
 
     except Exception as e:
-        print("Error generating response:", str(e))
-        print(traceback.format_exc())
-        return jsonify({"response": "An error occurred while generating the response."}), 500
+        logging.error("Error generating response: %s", str(e))
+        logging.error(traceback.format_exc())
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
